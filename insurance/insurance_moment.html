@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Form Simulation - AutoGuard Insurance</title>
+    <style>
+        /* Basic Reset & Body Style */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Simulates the mobile screen container */
+        .instant-experience-container {
+            width: 375px;
+            max-width: 100%;
+            height: 812px;
+            max-height: 90vh;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border-radius: 12px;
+        }
+
+        /* Header Styling */
+        .ie-header {
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #004A99, #003366);
+            color: white;
+            border-bottom: 1px solid #003366;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .ie-header .store-name {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .ie-header .store-name:before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            margin-right: 8px;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93s3.06-7.44 7-7.93v15.86zm2-15.86c1.03.13 2 .45 2.87.93H13v-.93zM13 7h5.24c.25.31.48.65.68 1H13V7zm0 3h6.74c.08.33.15.66.19 1H13v-1zm0 3h6.93c-.06.33-.14.66-.24 1H13v-1zm0 3h6.27c-.69 1.47-1.73 2.76-3.03 3.71L13 16.93v-.93zM11 19.93v-15.86c-3.94.49-7 3.85-7 7.93s3.06 7.44 7 7.93z'/%3E%3C/svg%3E");
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93s3.06-7.44 7-7.93v15.86zm2-15.86c1.03.13 2 .45 2.87.93H13v-.93zM13 7h5.24c.25.31.48.65.68 1H13V7zm0 3h6.74c.08.33.15.66.19 1H13v-1zm0 3h6.93c-.06.33-.14.66-.24 1H13v-1zm0 3h6.27c-.69 1.47-1.73 2.76-3.03 3.71L13 16.93v-.93zM11 19.93v-15.86c-3.94.49-7 3.85-7 7.93s3.06 7.44 7 7.93z'/%3E%3C/svg%3E");
+            mask-size: cover;
+            -webkit-mask-size: cover;
+        }
+
+        .ie-header .close-button {
+            font-size: 1.5em;
+            color: #fff;
+            cursor: pointer;
+            font-weight: lighter;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        .ie-header .close-button:hover {
+            opacity: 1;
+        }
+
+        /* Main Content Area */
+        .ie-content {
+            flex-grow: 1;
+        }
+
+        /* Intro Section Styling */
+        .intro-section img.hero-image {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .intro-section .intro-text {
+            padding: 24px 20px;
+            text-align: center;
+            background-color: #f7f9fc;
+            border-bottom: 1px solid #e6e9ed;
+        }
+
+        .intro-text h2 {
+            font-size: 1.5em;
+            margin-bottom: 12px;
+            color: #004A99;
+            font-weight: 700;
+        }
+
+        .intro-text p {
+            font-size: 1.05em;
+            color: #505a64;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Form Section Styling */
+        .form-section {
+            padding: 24px 20px;
+            background: linear-gradient(to bottom, #fff, #f7f9fc);
+        }
+
+        .form-section h3 {
+            font-size: 1.2em;
+            color: #004A99;
+            margin-bottom: 20px;
+            text-align: left;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e6e9ed;
+        }
+
+        .form-section h3:after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #007A33;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.95em;
+            color: #404a54;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #ccd0d5;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box; /* Include padding in width */
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #004A99; /* AutoGuard Blue */
+            box-shadow: 0 0 0 3px rgba(0, 74, 153, 0.15);
+        }
+
+        /* Simulate pre-filled look */
+        .form-group input.prefilled-look {
+            background-color: #e8f0fe; /* Light blue background */
+            color: #333; /* Adjust text color if needed */
+            border-color: #a4c0e0;
+        }
+
+        .form-group small {
+            display: block;
+            font-size: 0.85em;
+            color: #65727f;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        /* Privacy Policy Styling */
+        .privacy-policy {
+            margin: 24px 0;
+            text-align: center;
+            padding: 12px;
+            background-color: #f7f9fc;
+            border-radius: 6px;
+            border: 1px solid #e6e9ed;
+        }
+
+        .privacy-policy p {
+            font-size: 0.85em;
+            color: #505a64;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .privacy-policy a {
+            color: #004A99; /* AutoGuard Blue */
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .privacy-policy a:hover {
+            color: #003366;
+        }
+
+        /* Submit Button Styling */
+        .submit-button button {
+            background: linear-gradient(to bottom, #007A33, #006128);
+            color: white;
+            border: none;
+            padding: 16px 25px;
+            font-size: 1.1em;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 122, 51, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-button button:hover {
+            background: linear-gradient(to bottom, #00892a, #005520);
+            box-shadow: 0 4px 8px rgba(0, 122, 51, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Optional Thank You Info Styling */
+        .thank-you-info {
+            padding: 20px 15px;
+            background-color: #f0f7ff;
+            border-top: 1px solid #d0e0f0;
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 0 0 12px 12px;
+        }
+        
+        .thank-you-info h4 {
+            margin: 0 0 10px 0;
+            color: #004A99;
+            font-size: 1.05em;
+        }
+        
+        .thank-you-info p {
+            font-size: 0.9em;
+            color: #505a64;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            border-left: 4px solid #004A99;
+        }
+
+        .testimonial p {
+            margin: 0 0 8px 0;
+            font-style: italic;
+            color: #505a64;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .testimonial .customer {
+            font-weight: 600;
+            color: #004A99;
+            text-align: right;
+            font-size: 0.85em;
+        }
+
+        /* Savings Counter */
+        .savings-counter {
+            text-align: center;
+            margin: 15px 0;
+            font-weight: 700;
+            color: #007A33;
+            font-size: 1.1em;
+        }
+
+        .savings-counter span {
+            display: inline-block;
+            padding: 3px 8px;
+            background-color: #e8f5ee;
+            border-radius: 4px;
+            margin: 0 2px;
+        }
+
+        /* Animation for form focus */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 74, 153, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(0, 74, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 74, 153, 0); }
+        }
+
+        .form-group input:focus {
+            animation: pulse 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="instant-experience-container instant-form-container">
+        <header class="ie-header">
+            <span class="store-name">AutoGuard Insurance</span>
+            <span class="close-button">✕</span>
+        </header>
+
+        <main class="ie-content">
+            <section class="intro-section">
+                <img src="https://pbrendanim.github.io/images/1000001072.jpg" alt="Illustration of car with shield and savings" class="hero-image">
+                <div class="intro-text">
+                    <h2>See How Much You Can Save!</h2>
+                    <p>Get a fast, free car insurance quote from AutoGuard Insurance. Many Seattle drivers are saving hundreds! Just confirm your details below to get started.</p>
+                </div>
+                <div class="savings-counter">
+                    Seattle drivers saved <span>$478</span> on average in 2025
+                </div>
+            </section>
+
+            <section class="testimonial">
+                <p>"I saved over $500 a year by switching to AutoGuard! The process was incredibly simple and took less than 10 minutes."</p>
+                <div class="customer">- Jason Knapp, Seattle</div>
+            </section>
+
+            <section class="form-section">
+                <h3>Your Info for a Free Quote:</h3>
+                <form action="#" method="post" onsubmit="alert('Simulation: Form Submitted! (No data sent)'); return false;">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full_name" placeholder="Pre-filled: Jane Doe" required class="prefilled-look">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Pre-filled: jane.doe@email.com" required class="prefilled-look">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="e.g., 206-555-1234" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zip-code">Your ZIP Code (Seattle Area)</label>
+                        <input type="text" id="zip-code" name="zip_code" inputmode="numeric" pattern="[0-9]{5}" placeholder="e.g., 98101" required>
+                        <small>Needed for accurate quoting</small>
+                    </div>
+
+                    <div class="privacy-policy">
+                        <p>By submitting, you agree to AutoGuard Insurance's <a href="#" target="_blank" title="View Privacy Policy (Dummy Link)">Privacy Policy</a> and consent to be contacted.</p>
+                    </div>
+
+                    <div class="submit-button">
+                        <button type="submit">Get My Free Quote!</button>
+                    </div>
+                </form>
+            </section>
+            
+        </main>
+    </div>
+</body>
+</html>
