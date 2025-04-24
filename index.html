@@ -3,89 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Phoenix - Hackathon 2025</title>
+    <title>DDD - Digital Disrupters 2025</title>
     <style>
+        /* Modern color palette and fonts */
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4cc9f0;
+            --success: #2dc653;
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
         body {
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
-        .container {
-            max-width: 960px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 4rem 2rem;
             text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
-            color: #007bff;
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
         }
-        p {
-            margin-bottom: 1em;
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
         .cta-button {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: #fff;
+            padding: 0.8rem 2rem;
+            background: var(--success);
+            color: white;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 12px rgba(45, 198, 83, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
         }
+        
         .cta-button:hover {
-            background-color: #218838;
+            background-color: #25a946;
+            box-shadow: 0 6px 15px rgba(45, 198, 83, 0.4);
+            transform: translateY(-2px);
         }
+        
         .features {
-            margin-top: 30px;
-            text-align: left;
+            margin-top: 1rem;
         }
-        .features h2 {
-            text-align: center;
-            margin-bottom: 15px;
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
         }
+        
         .feature-item {
-            margin-bottom: 10px;
-            padding-left: 20px;
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
             position: relative;
         }
+        
         .feature-item::before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #28a745;
+            color: var(--success);
             font-weight: bold;
+            font-size: 1.1rem;
         }
+        
+        .feature-item a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .feature-item a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .team-member {
+            padding: 1.5rem;
+            background-color: rgba(67, 97, 238, 0.05);
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-member h3 {
+            margin: 0;
+            color: var(--secondary);
+        }
+        
         footer {
             text-align: center;
-            margin-top: 50px;
-            color: #777;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>2025 InMarket Digital Distrupters: Digital Disrupters Dudes</h1>
-        <p>Our innovative solution developed during Hackathon 2025 aims to [briefly describe the project's main goal or problem it solves].</p>
-        <a href="#" class="cta-button">Learn More</a>
+    <div class="hero">
+        <h1>Digital Disrupters Dudes</h1>
+        <p>Introducing Peak Engagment Moments - Expand Moments beyond location and leverage new Moments formats: Interactive and Performance Moments </p>
+        <button class="cta-button">Learn More</button>
+    </div>
 
-        <section class="features">
-            <h2>Links</h2>
-            <ul>
-                <li class="feature-item">Interactive Oreo Creative 300x250: https://pbrendanim.github.io/oreo-rtb-300x250.html</li>
-                <li class="feature-item">Interactive Oreo Creative 300x600: https://pbrendanim.github.io/oreo-rtb-300x600.html</li>
-                <li class="feature-item">[Feature 3]: Highlight a unique aspect of our project.</li>
-                <li class="feature-item">[Optional Feature]: Add another interesting feature here.</li>
-            </ul>
-        </section>
+    <div class="container">
+        <div class="card">
+            <h2>Interactive Demos</h2>
+            <div class="features">
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <a href="https://pbrendanim.github.io/oreo-rtb-300x250.html" target="_blank">
+                            Interactive Oreo Creative 300x250
+                        </a>
+                    </li>
+                    <li class="feature-item">
+                        <a href="https://pbrendanim.github.io/oreo-rtb-300x600.html" target="_blank">
+                            Interactive Oreo Creative 300x600
+                        </a>
+                    </li>
+                    <li class="feature-item">
+                        <a href="https://pbrendanim.github.io/luxury/luxury_goods.html" target="_blank">
+                            Performance Moments - Retail
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Peter Brendan</h3>
+                    <p>Product</p>
+                </div>
+                <div class="team-member">
+                    <h3>Andrew Davis</h3>
+                    <p>Product</p>
+                </div>
+                <div class="team-member">
+                    <h3>Jordan Klein</h3>
+                    <p>Engineering</p>
+                </div>
+                <div class="team-member">
+                    <h3>Spencer Johnson</h3>
+                    <p>Product</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 DDD</p>
+        <div class="container">
+            <p>&copy; 2025 Digital Disrupters Dudes (DDD) | InMarket Hackathon</p>
+        </div>
     </footer>
 </body>
 </html>
