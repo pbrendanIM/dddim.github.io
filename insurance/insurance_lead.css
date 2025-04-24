@@ -1,0 +1,195 @@
+/* Basic Reset & Body Style (same as previous) */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Simulates the mobile screen container (same as previous) */
+.instant-experience-container {
+    width: 375px;
+    max-width: 100%;
+    height: 812px;
+    max-height: 90vh;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Header Styling (same as previous, adjusted for theme maybe) */
+.ie-header {
+    padding: 10px 15px;
+    background-color: #004A99; /* AutoGuard Blue */
+    color: white;
+    border-bottom: 1px solid #003366;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.ie-header .store-name { /* Reusing class, adjust content */
+    font-weight: bold;
+    font-size: 0.9em;
+    color: white;
+}
+
+.ie-header .close-button {
+    font-size: 1.5em;
+    color: #eee;
+    cursor: pointer;
+    font-weight: lighter;
+}
+
+/* Main Content Area */
+.ie-content {
+    flex-grow: 1;
+}
+
+/* Intro Section Styling */
+.intro-section img.hero-image {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.intro-section .intro-text {
+    padding: 20px 15px;
+    text-align: center;
+    background-color: #f7f7f7; /* Slight contrast */
+}
+
+.intro-text h2 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #1c1e21;
+}
+
+.intro-text p {
+    font-size: 1em;
+    color: #606770;
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* Form Section Styling */
+.form-section {
+    padding: 20px 15px;
+}
+
+.form-section h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #004A99; /* AutoGuard Blue */
+    box-shadow: 0 0 0 2px rgba(0, 74, 153, 0.2);
+}
+
+/* Simulate pre-filled look */
+.form-group input.prefilled-look {
+    background-color: #e8f0fe; /* Light blue background */
+    color: #333; /* Adjust text color if needed */
+}
+
+.form-group small {
+    display: block;
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 3px;
+}
+
+/* Privacy Policy Styling */
+.privacy-policy {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.privacy-policy p {
+    font-size: 0.8em;
+    color: #606770;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.privacy-policy a {
+    color: #004A99; /* AutoGuard Blue */
+    text-decoration: underline;
+}
+
+/* Submit Button Styling */
+.submit-button button {
+    background-color: #007A33; /* AutoGuard Green */
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.submit-button button:hover {
+    background-color: #00642a;
+}
+
+/* Optional Thank You Info Styling */
+.thank-you-info {
+    padding: 20px 15px;
+    background-color: #e8f0fe; /* Light background */
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    text-align: center;
+}
+.thank-you-info h4 {
+    margin: 0 0 10px 0;
+    color: #004A99;
+}
+.thank-you-info p {
+    font-size: 0.9em;
+    color: #333;
+    margin: 0;
+}

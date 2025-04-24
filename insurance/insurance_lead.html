@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Form Simulation - AutoGuard Insurance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="instant-experience-container instant-form-container">
+        <header class="ie-header">
+            <span class="store-name">AutoGuard Insurance</span>
+            <span class="close-button">✕</span>
+        </header>
+
+        <main class="ie-content">
+            <section class="intro-section">
+                <img src="https://placehold.co/600x300/A0C0E0/204060?text=Save+on+Car+Insurance" alt="Illustration of car with shield and savings" class="hero-image">
+                <div class="intro-text">
+                    <h2>See How Much You Can Save!</h2>
+                    <p>Get a fast, free car insurance quote from AutoGuard Insurance. Many Seattle drivers are saving hundreds! Just confirm your details below to get started.</p>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h3>Your Info for a Free Quote:</h3>
+                <form action="#" method="post" onsubmit="alert('Simulation: Form Submitted! (No data sent)'); return false;">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full_name" placeholder="Pre-filled: Jane Doe" required class="prefilled-look">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Pre-filled: jane.doe@email.com" required class="prefilled-look">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="e.g., 206-555-1234" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="zip-code">Your ZIP Code (Seattle Area)</label>
+                        <input type="text" id="zip-code" name="zip_code" inputmode="numeric" pattern="[0-9]{5}" placeholder="e.g., 98101" required>
+                         <small>Needed for accurate quoting.</small>
+                    </div>
+
+                    <div class="privacy-policy">
+                        <p>By submitting, you agree to AutoGuard Insurance's <a href="#" target="_blank" title="View Privacy Policy (Dummy Link)">Privacy Policy</a> and consent to be contacted.</p>
+                    </div>
+
+                    <div class="submit-button">
+                        <button type="submit">Get My Free Quote!</button>
+                    </div>
+                </form>
+            </section>
+             <section class="thank-you-info">
+                <h4>Next Steps (Post-Submission Simulation):</h4>
+                <p>A real form would typically show a confirmation message here, maybe like "Thanks! We'll contact you shortly." and potentially a button linking to the company's website.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
