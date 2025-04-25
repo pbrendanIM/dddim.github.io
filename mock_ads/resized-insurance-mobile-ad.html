@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoGuard Insurance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+        
+        .page-container {
+            position: relative;
+            width: 375px; /* Match luxury_goods.html width */
+            height: 812px; /* Match luxury_goods.html height */
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: #172554;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Apply background image directly to container */
+        .page-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://pbrendanim.github.io/images/1000001077.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5);
+            z-index: 0;
+        }
+        
+        /* Use another pseudo-element for the overlay */
+        .page-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(23, 37, 84, 0.7);
+            z-index: 0;
+        }
+        
+        .logo-section {
+            padding: 16px;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-section {
+            flex: 1;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 85%;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .content-section {
+            flex: 2;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-text {
+            font-size: 16px;
+            color: white;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button {
+            background-color: #4a6fdc;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            background-color: #3a57b5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+        
+        .footer {
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+            position: relative;
+        }
+        
+        /* Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Background image and overlay are now handled by pseudo-elements -->
+        
+        <div class="logo-section">
+            <div class="logo">AutoGuard Insurance</div>
+        </div>
+        
+        <div class="hero-section">
+            <div class="hero-title">Life Happens Fast</div>
+            <div class="hero-subtitle">Your protection should keep up with life's unexpected moments.</div>
+        </div>
+        
+        <div class="content-section">
+            <p class="feature-text">
+                Comprehensive coverage for home, auto, and life insurance at rates you can afford. Stay protected no matter where life takes you.
+            </p>
+            
+            <a href="https://pbrendanim.github.io/insurance/insurance_moment.html" class="cta-button animate-pulse">Get Quote Now</a>
+        </div>
+        
+        <div class="footer">
+            *Terms and conditions apply. Tap for details.
+        </div>
+    </div>
+</body>
+</html>
